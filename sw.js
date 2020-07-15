@@ -1,6 +1,5 @@
-var cacheName = 'helloPWA';
+//var cacheName = 'helloPWA';
 var filesToCache = [
-  '/',
   'index.html',
   'css/style.css',
   'js/main.js'
