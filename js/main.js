@@ -12,4 +12,12 @@ window.onload = () => {
 		// Remove the 'hidden' class from the install button container
 		divInstall.classList.toggle('hidden', false);
 	});
+
+	// requestPermission promise returns one of three values: granted, denied, or default
+	Notification.requestPermission(result =>  {
+	  	console.log("Notification.requestPermission: " +result)
+	  if (result === 'granted') {
+	    alert('thanks for giving me permissions')
+	  }
+	});
 };
