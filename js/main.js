@@ -39,7 +39,7 @@ function showNotification(title, message) {
 	console.log("inside showNotification");
     if ('Notification' in window) {
 	    navigator.serviceWorker.ready.then(registration => {
-	      	registration.showNotification('Vibration Sample', {
+	      	registration.showNotification('This is a sample', {
 	        	//body: 'Buzz! Buzz!',
 	        	//tag: 'vibration-sample'
 	        	body: message,
