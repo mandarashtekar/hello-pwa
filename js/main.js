@@ -18,12 +18,15 @@ window.onload = () => {
 	  	console.log("Notification.requestPermission: " +result)
 	  if (result === 'granted') {
 	    alert('thanks for giving me permissions');
-	    navigator.serviceWorker.ready.then(registration => {
-	      	registration.showNotification('Vibration Sample', {
-	        	body: 'Buzz! Buzz!',
-	        	tag: 'vibration-sample'
-	      	});
-	    });
+
+	    if ('Notification' in window) {
+		    navigator.serviceWorker.ready.then(registration => {
+		      	registration.showNotification('Vibration Sample', {
+		        	body: 'Buzz! Buzz!',
+		        	tag: 'vibration-sample'
+		      	});
+		    });
+		}
 	  }
 	});
 };
