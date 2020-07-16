@@ -17,7 +17,13 @@ window.onload = () => {
 	Notification.requestPermission(result =>  {
 	  	console.log("Notification.requestPermission: " +result)
 	  if (result === 'granted') {
-	    alert('thanks for giving me permissions')
+	    alert('thanks for giving me permissions');
+	    navigator.serviceWorker.ready.then(registration => {
+	      	registration.showNotification('Vibration Sample', {
+	        	body: 'Buzz! Buzz!',
+	        	tag: 'vibration-sample'
+	      	});
+	    });
 	  }
 	});
 };
