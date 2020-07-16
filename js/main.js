@@ -13,20 +13,21 @@ window.onload = () => {
 		divInstall.classList.toggle('hidden', false);
 	});
 
-	// requestPermission promise returns one of three values: granted, denied, or default
-	Notification.requestPermission(result =>  {
-	  	console.log("Notification.requestPermission: " +result)
-	  if (result === 'granted') {
-	    alert('thanks for giving me permissions');
-
-	    if ('Notification' in window) {
-		    navigator.serviceWorker.ready.then(registration => {
-		      	registration.showNotification('Vibration Sample', {
-		        	body: 'Buzz! Buzz!',
-		        	tag: 'vibration-sample'
-		      	});
-		    });
-		}
-	  }
+  	Notification.requestPermission(result => {
+	  	if (result === 'granted') {
+	  		console.log("thanks for giving me permissions");
+	    	showNotification('So nice to have you here!', 'Hey there!')
+	  	}
 	});
 };
+
+function showNotification(title, message) {
+    if ('Notification' in window) {
+	    navigator.serviceWorker.ready.then(registration => {
+	      	registration.showNotification('Vibration Sample', {
+	        	body: 'Buzz! Buzz!',
+	        	tag: 'vibration-sample'
+	      	});
+	    });
+	}
+}
