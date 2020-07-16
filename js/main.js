@@ -21,6 +21,12 @@ window.onload = () => {
 	});
 };
 
+var butInstall = document.getElementById('butInstall');
+
+butInstall.addEventListener('click', () => {
+	console.log("Button clicked");
+});
+
 function showNotification(title, message) {
 	console.log("inside showNotification");
     if ('Notification' in window) {
