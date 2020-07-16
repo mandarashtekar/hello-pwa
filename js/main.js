@@ -20,10 +20,8 @@ window.onload = () => {
 	    	if ('Notification' in window) {
 			    navigator.serviceWorker.ready.then(registration => {
 			      	registration.showNotification('Vibration Sample', {
-			        	//body: 'Buzz! Buzz!',
-			        	//tag: 'vibration-sample'
-			        	body: message,
-			        	tag: title
+			        	body: 'Buzz! Buzz!',
+			        	tag: 'vibration-sample'
 			      	});
 			    });
 			}
