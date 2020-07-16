@@ -16,12 +16,13 @@ window.onload = () => {
   	Notification.requestPermission(result => {
 	  	if (result === 'granted') {
 	  		console.log("thanks for giving me permissions");
-	    	showNotification('So nice to have you here!', 'Hey there!')
+	    	showNotification('So nice to have you here!', 'Hey there!');
 	  	}
 	});
 };
 
 function showNotification(title, message) {
+	console.log("inside showNotification");
     if ('Notification' in window) {
 	    navigator.serviceWorker.ready.then(registration => {
 	      	registration.showNotification('Vibration Sample', {
