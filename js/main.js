@@ -16,15 +16,15 @@ window.onload = () => {
   	Notification.requestPermission(result => {
 	  	if (result === 'granted') {
 	  		console.log("thanks for giving me permissions");
-	    	// showNotification('So nice to have you here!', 'Hey there!');
-	    	if ('Notification' in window) {
+	    	showNotification('So nice to have you here!', 'Hey there!');
+	    	/*if ('Notification' in window) {
 			    navigator.serviceWorker.ready.then(registration => {
 			      	registration.showNotification('Vibration Sample', {
 			        	body: 'Buzz! Buzz!',
 			        	tag: 'vibration-sample'
 			      	});
 			    });
-			}
+			}*/
 	  	}
 	});
 };
@@ -35,7 +35,7 @@ butInstall.addEventListener('click', () => {
 	console.log("Button clicked");
 });
 
-/*function showNotification(title, message) {
+function showNotification(title, message) {
 	console.log("inside showNotification");
     if ('Notification' in window) {
 	    navigator.serviceWorker.ready.then(registration => {
@@ -47,4 +47,4 @@ butInstall.addEventListener('click', () => {
 	      	});
 	    });
 	}
-}*/
+}
