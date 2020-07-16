@@ -16,7 +16,17 @@ window.onload = () => {
   	Notification.requestPermission(result => {
 	  	if (result === 'granted') {
 	  		console.log("thanks for giving me permissions");
-	    	showNotification('So nice to have you here!', 'Hey there!');
+	    	// showNotification('So nice to have you here!', 'Hey there!');
+	    	if ('Notification' in window) {
+			    navigator.serviceWorker.ready.then(registration => {
+			      	registration.showNotification('Vibration Sample', {
+			        	//body: 'Buzz! Buzz!',
+			        	//tag: 'vibration-sample'
+			        	body: message,
+			        	tag: title
+			      	});
+			    });
+			}
 	  	}
 	});
 };
@@ -27,16 +37,16 @@ butInstall.addEventListener('click', () => {
 	console.log("Button clicked");
 });
 
-function showNotification(title, message) {
+/*function showNotification(title, message) {
 	console.log("inside showNotification");
     if ('Notification' in window) {
 	    navigator.serviceWorker.ready.then(registration => {
 	      	registration.showNotification('Vibration Sample', {
-	        	/*body: 'Buzz! Buzz!',
-	        	tag: 'vibration-sample'*/
+	        	//body: 'Buzz! Buzz!',
+	        	//tag: 'vibration-sample'
 	        	body: message,
 	        	tag: title
 	      	});
 	    });
 	}
-}
+}*/
