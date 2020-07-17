@@ -3,11 +3,27 @@ window.onload = () => {
 
   	if ('serviceWorker' in navigator) {
     	navigator.serviceWorker.register('sw.js')
-          .then(function (registration){
-            console.log('Service worker registered successfully on scope: ' +registration.scope);
-          }).catch(function(e){
-            console.error('Error during service worker registration:', e);
-          });
+    		.then(function(serviceWorkerRegistration) {
+			    serviceWorkerRegistration.pushManager.subscribe()
+			    .then(function(pushSubscription) {
+			        console.log("pushSubscription.subscriptionId: " +pushSubscription.subscriptionId);
+			        console.log("pushSubscription.endpoint: " +pushSubscription.endpoint);
+			        // The push subscription details needed by the application
+			        // server are now available, and can be sent to it using,
+			        // for example, an XMLHttpRequest.
+			      }, function(error) {
+			        // During development it often helps to log errors to the
+			        // console. In a production environment it might make sense to
+			        // also report information about errors back to the
+			        // application server.
+			        console.log(error);
+			    });
+			})
+          	.then(function (registration){
+            	console.log('Service worker registered successfully on scope: ' +registration.scope);
+          	}).catch(function(e){
+            	console.error('Error during service worker registration:', e);
+          	});
   	}
 
   	/*self.addEventListener('install', function(event) {
