@@ -57,7 +57,7 @@ var butInstall = document.getElementById('butInstall');
 
 // Push Notifications for PWA
 butInstall.addEventListener('click', () => {
-  alert("Button clicked");
+  console.log("Button clicked");
   showNotification('So nice to have you here!', 'Hey there!');
 });
 
@@ -80,7 +80,7 @@ function showNotification(title, message) {
 var secondPageBtn = document.getElementById('secondPageBtn');
 
 secondPageBtn.addEventListener('click', () => {
-  console.log("Goto second page");
+  alert("Goto second page");
   window.location.href = "second-page.html"
 });
 /* *************** Second Page - END *************** */
