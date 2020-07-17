@@ -3,7 +3,7 @@ window.onload = () => {
 
   	if ('serviceWorker' in navigator) {
     	navigator.serviceWorker.register('sw.js')
-    		.then(function(serviceWorkerRegistration) {
+    		/*.then(function(serviceWorkerRegistration) {
 			    serviceWorkerRegistration.pushManager.subscribe()
 			    .then(function(pushSubscription) {
 			        console.log("pushSubscription.subscriptionId: " +pushSubscription.subscriptionId);
@@ -18,7 +18,7 @@ window.onload = () => {
 			        // application server.
 			        console.log(error);
 			    });
-			})
+			})*/
           	.then(function (registration){
             	console.log('Service worker registered successfully on scope: ' +registration.scope);
           	}).catch(function(e){
