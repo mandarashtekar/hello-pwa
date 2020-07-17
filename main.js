@@ -156,12 +156,14 @@ window.onload = () => {
 
     if (navigator.platform.indexOf('iPhone') == "false") {
       console.log("Not an iPhone");
-      
+
     	Notification.requestPermission(result => {
   	  	if (result === 'granted') {
   	  		console.log("Thanks for giving me permissions");
   	  	}
   	  });
+    } else{
+      console.log("It's an iPhone, not calling Notification");
     }
 };
 
