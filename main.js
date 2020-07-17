@@ -37,7 +37,7 @@ window.onload = () => {
 };
 
 /* *************** Push Notification - START *************** */
-var butInstall = document.getElementById('butInstall');
+var butInstall = document.queryselector('butInstall');
 
 // Push Notifications for PWA
 butInstall.addEventListener('click', () => {
