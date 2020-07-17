@@ -57,7 +57,7 @@ var butInstall = document.getElementById('butInstall');
 
 // Push Notifications for PWA
 butInstall.addEventListener('click', () => {
-  console.log("Button clicked");
+  alert("Button clicked");
   showNotification('So nice to have you here!', 'Hey there!');
 });
 
