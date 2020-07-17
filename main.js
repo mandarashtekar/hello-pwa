@@ -26,7 +26,7 @@ window.onload = () => {
           	});
   	}
 
-  	/*self.addEventListener('install', function(event) {
+  	self.addEventListener('install', function(event) {
         console.log('Installed sw.js', event);
     });
 
@@ -35,7 +35,7 @@ window.onload = () => {
     });
     self.addEventListener('fetch', function(event){
         console.log("Fetch - Requested event: " +event.request);
-    });*/
+    });
 
   	/*window.addEventListener('beforeinstallprompt', (event) => {
 		console.log('👍', 'beforeinstallprompt', event);
