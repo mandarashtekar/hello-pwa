@@ -59,3 +59,12 @@ function showNotification(title, message) {
   }
 }
 /* *************** Push Notification - END *************** */
+
+/* *************** Second Page - START *************** */
+var secondPageBtn = document.getElementById('secondPageBtn');
+
+secondPageBtn.addEventListener('click', () => {
+  console.log("Goto second page");
+  window.location.href = "second-page.html"
+});
+/* *************** Second Page - END *************** */

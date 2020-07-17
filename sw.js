@@ -1,6 +1,7 @@
 var cacheName = 'hello-world-PWA';
 var filesToCache = [
   'index.html',
+  'second-page.html',
   'main.js',
   'css/style.css'
 ];
