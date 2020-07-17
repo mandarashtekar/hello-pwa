@@ -3,6 +3,7 @@ var filesToCache = [
   'index.html',
   'second-page.html',
   'main.js',
+  'js/second.js',
   'css/style.css'
 ];
 

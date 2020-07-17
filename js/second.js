@@ -1,7 +1,8 @@
-window.onload = () => {
-  	'use strict';
+'use strict';
 
-  	if ('serviceWorker' in navigator) {
+window.onload = () => {
+
+  	/*if ('serviceWorker' in navigator) {
     	navigator.serviceWorker.register('sw.js')
           .then(function (registration){
             console.log('Service worker registered successfully on scope: ' +registration.scope);
@@ -10,7 +11,7 @@ window.onload = () => {
           });
   	}
 
-  	/*self.addEventListener('install', function(event) {
+  	self.addEventListener('install', function(event) {
         console.log('Installed sw.js', event);
     });
 
@@ -29,27 +30,27 @@ window.onload = () => {
 		divInstall.classList.toggle('hidden', false);
 	});*/
 
-  	Notification.requestPermission(result => {
+  /*Notification.requestPermission(result => {
 	  	if (result === 'granted') {
 	  		console.log("Thanks for giving me permissions");
 	  	}
-	});
+	});*/
 };
 
 /* *************** Push Notification - START *************** */
-var butInstall = document.getElementById('butInstall');
+var butInstall2 = document.getElementById('butInstall2');
 
 // Push Notifications for PWA
-butInstall.addEventListener('click', () => {
+butInstall2.addEventListener('click', () => {
   console.log("Button clicked");
-  showNotification('So nice to have you here!', 'Hey there!');
+  showNotification('So nice to have you here!', 'Hi again!');
 });
 
 function showNotification(title, message) {
   console.log("inside showNotification");
     if ('Notification' in window) {
       navigator.serviceWorker.ready.then(registration => {
-          registration.showNotification('This is a sample', {
+          registration.showNotification('Second Page', {
             //body: 'Buzz! Buzz!',
             //tag: 'vibration-sample'
             body: message,
@@ -61,10 +62,10 @@ function showNotification(title, message) {
 /* *************** Push Notification - END *************** */
 
 /* *************** Second Page - START *************** */
-var secondPageBtn = document.getElementById('secondPageBtn');
+var firstPageBtn = document.getElementById('firstPageBtn');
 
-secondPageBtn.addEventListener('click', () => {
+firstPageBtn.addEventListener('click', () => {
   console.log("Goto second page");
-  window.location.href = "second-page.html"
+  window.location.href = "index.html"
 });
 /* *************** Second Page - END *************** */
