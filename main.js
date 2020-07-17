@@ -152,13 +152,17 @@ window.onload = () => {
 		window.deferredPrompt = event;
 		// Remove the 'hidden' class from the install button container
 		divInstall.classList.toggle('hidden', false);
-	});*/
+	  });*/
 
-  	Notification.requestPermission(result => {
-	  	if (result === 'granted') {
-	  		console.log("Thanks for giving me permissions");
-	  	}
-	});
+    if (navigator.platform.indexOf('iPhone') == "false") {
+      console.log("Not an iPhone");
+      
+    	Notification.requestPermission(result => {
+  	  	if (result === 'granted') {
+  	  		console.log("Thanks for giving me permissions");
+  	  	}
+  	  });
+    }
 };
 
 /* *************** Push Notification - START *************** */
@@ -189,7 +193,7 @@ function showNotification(title, message) {
 var secondPageBtn = document.getElementById('secondPageBtn');
 
 secondPageBtn.addEventListener('click', () => {
-  alert("Goto second page");
+  console.log("Goto second page");
   window.location.href = "second-page.html"
 });
 /* *************** Second Page - END *************** */
