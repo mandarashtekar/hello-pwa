@@ -165,7 +165,8 @@ window.onload = () => {
 	  });*/
 
     /* *************** NOTIFICATION REQUEST - START *************** */
-    if (navigator.platform.indexOf('iPhone') == "false") {
+    // if (navigator.platform.indexOf('iPhone') == "false") {
+    if (navigator.platform != "iPhone") {
         console.log("Not an iPhone, calling Notification");
 
     	Notification.requestPermission(result => {
@@ -200,7 +201,7 @@ sendNotBtn.addEventListener('click', () => {
 function showNotification(title, message) {
   console.log("inside showNotification");
     if ('Notification' in window) {
-        console.log("You browser supports Notifications");
+        console.log("Your browser supports Notifications");
 
         navigator.serviceWorker.ready.then(registration => {
               registration.showNotification('This is a sample', {
