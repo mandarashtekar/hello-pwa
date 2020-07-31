@@ -199,19 +199,24 @@ sendNotBtn.addEventListener('click', () => {
 });
 
 function showNotification(title, message) {
-  console.log("inside showNotification");
+    console.log("inside showNotification");
     if ('Notification' in window) {
         console.log("Your browser supports Notifications");
-
+        var options = {
+            body: message,
+            tag: title,
+            icon: 'images/hello-icon-128.png'
+        }
         navigator.serviceWorker.ready.then(registration => {
-              registration.showNotification('This is a sample', {
+            registration.showNotification('This is a sample!', options);
+              /*registration.showNotification('This is a sample', {
                 //body: 'Buzz! Buzz!',
                 //tag: 'vibration-sample'
                 body: message,
                 tag: title
-              });
+              });*/
         });
-  }
+    }
 }
 /* *************** PUSH NOTIFICATION - END *************** */
 
