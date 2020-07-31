@@ -89,7 +89,15 @@ window.onload = () => {
     debug += 'navigator.vendor = ' + navigator.vendor + '<br/>';
     
     // document.getElementById('log').innerHTML = debug;
-    console.log("Details: " +debug);
+    // console.log("Details: " +debug);
+    console.log("OS Name: " +e.os.name);
+    console.log("OS Version: " +e.os.version);
+    console.log("Browser Name: " +e.browser.name);
+    console.log("Browser Version: " +e.browser.version);
+    console.log("userAgent: " +navigator.userAgent);
+    console.log("appVersion: " +navigator.appVersion);
+    console.log("Platform: " +navigator.platform);
+    console.log("Vendor: " +navigator.vendor);
 
     /* *************** User Agent details - END *************** */
 
@@ -192,14 +200,16 @@ sendNotBtn.addEventListener('click', () => {
 function showNotification(title, message) {
   console.log("inside showNotification");
     if ('Notification' in window) {
-      navigator.serviceWorker.ready.then(registration => {
-          registration.showNotification('This is a sample', {
-            //body: 'Buzz! Buzz!',
-            //tag: 'vibration-sample'
-            body: message,
-            tag: title
-          });
-      });
+        console.log("You browser supports Notifications");
+
+        navigator.serviceWorker.ready.then(registration => {
+              registration.showNotification('This is a sample', {
+                //body: 'Buzz! Buzz!',
+                //tag: 'vibration-sample'
+                body: message,
+                tag: title
+              });
+        });
   }
 }
 /* *************** PUSH NOTIFICATION - END *************** */
