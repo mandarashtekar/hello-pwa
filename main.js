@@ -161,9 +161,11 @@ window.onload = () => {
         console.log("Not an iPhone, calling Notification");
 
     	Notification.requestPermission(result => {
-      	  	if (result === 'granted') {
+      	  	if (result === 'granted') {    //granted, denied, or default
       	  		console.log("Thanks for the Notification permissions");
-      	  	}
+      	  	} else{
+                console.log("Notification permissions not granted :("); 
+            }
   	    });
     } else{
         console.log("It's an iPhone, not calling Notification");
@@ -171,12 +173,19 @@ window.onload = () => {
     /* *************** NOTIFICATION REQUEST - STOP *************** */
 };
 
+/*var reqNotPermBtn = document.getElementById('reqNotPermBtn');
+
+reqNotPermBtn.addEventListener('click', () =>{
+    console.log("reqNotPermBtn clicked");
+    let promise = Notification.requestPermission();
+});*/
+
 /* *************** PUSH NOTIFICATION - START *************** */
 var sendNotBtn = document.getElementById('sendNotBtn');
 
 // Push Notifications for PWA
 sendNotBtn.addEventListener('click', () => {
-  console.log("Button clicked");
+  console.log("sendNotBtn clicked");
   showNotification('So nice to have you here!', 'Hey there!');
 });
 
