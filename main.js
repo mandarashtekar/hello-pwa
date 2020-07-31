@@ -110,6 +110,7 @@ window.onload = () => {
     }
     console.log("osName: " +osName);*/
 
+    /* *************** SERVICE WORKER - START *************** */
   	if ('serviceWorker' in navigator) {
     	navigator.serviceWorker.register('sw.js')
     		/*.then(function(serviceWorkerRegistration) {
@@ -145,6 +146,7 @@ window.onload = () => {
     self.addEventListener('fetch', function(event){
         console.log("Fetch - Requested event: " +event.request);
     });
+    /* *************** SERVICE WORKER - END *************** */
 
   	/*window.addEventListener('beforeinstallprompt', (event) => {
 		console.log('👍', 'beforeinstallprompt', event);
@@ -154,24 +156,26 @@ window.onload = () => {
 		divInstall.classList.toggle('hidden', false);
 	  });*/
 
+    /* *************** NOTIFICATION REQUEST - START *************** */
     if (navigator.platform.indexOf('iPhone') == "false") {
-      console.log("Not an iPhone");
+        console.log("Not an iPhone, calling Notification");
 
     	Notification.requestPermission(result => {
-  	  	if (result === 'granted') {
-  	  		console.log("Thanks for giving me permissions");
-  	  	}
-  	  });
+      	  	if (result === 'granted') {
+      	  		console.log("Thanks for the Notification permissions");
+      	  	}
+  	    });
     } else{
-      console.log("It's an iPhone, not calling Notification");
+        console.log("It's an iPhone, not calling Notification");
     }
+    /* *************** NOTIFICATION REQUEST - STOP *************** */
 };
 
-/* *************** Push Notification - START *************** */
-var butInstall = document.getElementById('butInstall');
+/* *************** PUSH NOTIFICATION - START *************** */
+var sendNotBtn = document.getElementById('sendNotBtn');
 
 // Push Notifications for PWA
-butInstall.addEventListener('click', () => {
+sendNotBtn.addEventListener('click', () => {
   console.log("Button clicked");
   showNotification('So nice to have you here!', 'Hey there!');
 });
@@ -189,13 +193,13 @@ function showNotification(title, message) {
       });
   }
 }
-/* *************** Push Notification - END *************** */
+/* *************** PUSH NOTIFICATION - END *************** */
 
-/* *************** Second Page - START *************** */
+/* *************** NAVIGATE TO SECOND PAGE - START *************** */
 var secondPageBtn = document.getElementById('secondPageBtn');
 
 secondPageBtn.addEventListener('click', () => {
   console.log("Goto second page");
   window.location.href = "second-page.html"
 });
-/* *************** Second Page - END *************** */
+/* *************** NAVIGATE TO SECOND PAGE - END *************** */
