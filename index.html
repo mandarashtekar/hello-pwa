@@ -21,6 +21,9 @@
     <meta name="apple-mobile-web-app-title" content="Hello World">
     <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
+
 </head>
 <body class="fullscreen">
   <div class="container">
@@ -28,6 +31,7 @@
     <button id="reqNotPermBtn" type="button" hidden>Request Notification!</button>
     <button id="sendNotBtn" type="button">Send Notification!</button>
     <button id="secondPageBtn" type="button">Go to Second Page!</button>
+    <div><pwa-install> Install </pwa-install></div>
   </div>
   <div id="log"></div>
   
