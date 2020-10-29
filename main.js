@@ -196,8 +196,10 @@ window.addEventListener("beforeinstallprompt", e => {
     deferredPrompt = e;
     // Show the install button
     // installButton.hidden = false;
-    installButton.addEventListener("click", installApp);
+    // installButton.addEventListener("click", installApp);
 });
+
+installButton.addEventListener("click", installApp);
 
 function installApp() {
     console.log("inside installApp")
