@@ -182,7 +182,7 @@ window.onload = () => {
         console.log("It's an iPhone, not calling Notification");
     }
     /* *************** NOTIFICATION REQUEST - STOP *************** */
-};
+// };
 
 /* *************** INSTALL APP - START *************** */
 let deferredPrompt;
@@ -222,7 +222,7 @@ window.addEventListener("appinstalled", evt => {
 });
 /* *************** INSTALL APP - START *************** */
 
-
+};
 /*var reqNotPermBtn = document.getElementById('reqNotPermBtn');
 
 reqNotPermBtn.addEventListener('click', () =>{
