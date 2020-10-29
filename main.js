@@ -196,12 +196,10 @@ window.addEventListener("beforeinstallprompt", e => {
     deferredPrompt = e;
     // Show the install button
     // installButton.hidden = false;
-    // installButton.addEventListener("click", installApp);
+    installButton.addEventListener("click", installApp);
 });
 
-installButton.addEventListener("click", installApp);
-
-function installApp() {
+installButton.addEventListener('click', () => {
     console.log("inside installApp")
     // Show the prompt
     deferredPrompt.prompt();
@@ -218,7 +216,7 @@ function installApp() {
         installButton.disabled = false;
         deferredPrompt = null;
     });
-}
+});
 
 window.addEventListener("appinstalled", evt => {
     console.log("appinstalled fired", evt);
