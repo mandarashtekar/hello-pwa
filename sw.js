@@ -25,6 +25,6 @@ self.addEventListener('fetch', function(e) {
   );
 });
 
-self.window.addEventListener("beforeinstallprompt", e => {
+/*self.window.addEventListener("beforeinstallprompt", e => {
   console.log("Inside SW-beforeinstallprompt");
-});
+});*/
