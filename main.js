@@ -156,13 +156,15 @@ window.onload = () => {
     });
     /* *************** SERVICE WORKER - END *************** */
 
-  	/*window.addEventListener('beforeinstallprompt', (event) => {
-		console.log('👍', 'beforeinstallprompt', event);
+  	/*window.addEventListener('beforeinstallprompt', e => {
+        console.log('Inside beforeinstallprompt', e);
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
 		// Stash the event so it can be triggered later.
-		window.deferredPrompt = event;
+		window.deferredPrompt = e;
 		// Remove the 'hidden' class from the install button container
 		divInstall.classList.toggle('hidden', false);
-	  });*/
+	});*/
 
     /* *************** NOTIFICATION REQUEST - START *************** */
     // if (navigator.platform.indexOf('iPhone') == "false") {
@@ -181,6 +183,45 @@ window.onload = () => {
     }
     /* *************** NOTIFICATION REQUEST - STOP *************** */
 };
+
+/* *************** INSTALL APP - START *************** */
+let deferredPrompt;
+const installButton = document.getElementById("install_button");
+
+window.addEventListener("beforeinstallprompt", e => {
+    console.log("Inside beforeinstallprompt");
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Show the install button
+    installButton.hidden = false;
+    installButton.addEventListener("click", installApp);
+});
+
+function installApp() {
+    // Show the prompt
+    deferredPrompt.prompt();
+    installButton.disabled = true;
+  
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then(choiceResult => {
+        if (choiceResult.outcome === "accepted") {
+            console.log("PWA setup accepted");
+            installButton.hidden = true;
+        } else {
+            console.log("PWA setup rejected");
+        }
+        installButton.disabled = false;
+        deferredPrompt = null;
+    });
+}
+
+window.addEventListener("appinstalled", evt => {
+    console.log("appinstalled fired", evt);
+});
+/* *************** INSTALL APP - START *************** */
+
 
 /*var reqNotPermBtn = document.getElementById('reqNotPermBtn');
 
