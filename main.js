@@ -148,6 +148,10 @@ window.onload = () => {
         console.log('Installed sw.js', event);
     });
 
+    /*self.addEventListener("install", event => {
+        console.log("Service Worker install");
+    });*/
+
     self.addEventListener('activate', function(event) {
         console.log('Activated sw.js', event);
     });
