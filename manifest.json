@@ -37,6 +37,6 @@
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white",
-  "prefer_related_applications": false,
+  "prefer_related_applications": true,
   "scope": "."
 }
